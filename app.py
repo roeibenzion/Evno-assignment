@@ -255,9 +255,17 @@ class Group(Resource):
         try:
             response = requests.get(f'https://api.github.com/repos/{username}/{repo_name}/issues', headers=headers)
             check = utilfunctions.check_response(response, repo_name)
+            issues = response.json()
+            # Check if there are more pages
+            while "next" in response.links.keys():
+                url = response.links["next"]["url"]
+                response = requests.get(url, headers=headers)
+                check = utilfunctions.check_response(response, repo_name)
+                issues.extend(response.json())
+            # If an error message is returned, return it
             if isinstance(check, str):
                 return check
-            return response.json()
+            return issues
         except subprocess.CalledProcessError as e:
             print(f"Error getting the logs of the repository '{repo_name}': {e}")
 
