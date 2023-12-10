@@ -20,6 +20,8 @@ Note: make sure the client's terminal is on full screen for the output to be wel
 This application lets the client to clone repositories given user name and valid access token, the user can also search the cloned repository and run
 a clustering algorithm on the contributors commit and issue history.
 
+
 After running the test.py client file you will be asked to provide the fitting user name and access token for you github account.
+
 
 Now, you can choose 'c' to clone (can clone as many repositories as you want), 's' to search by selected keys in the commit history and running sentiment analtsis over the commit messages, and choose 'g' to group developers contributed to that repo. 
