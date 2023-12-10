@@ -96,14 +96,20 @@ class Clone(Resource):
                 'Accept': 'application/vnd.github.v3+json'
             }
         try:
+            print('hello')
             response = requests.get(f'https://api.github.com/repos/{username}/{repo_name}/commits', headers=headers)
             check = utilfunctions.check_response(response, repo_name)
             # If an error message is returned, return it
             if isinstance(check, str):
                return check
-            
+            commits = response.json()
+            # Check if there are more pages
+            while "next" in response.links.keys():
+                url = response.links["next"]["url"]
+                response = requests.get(url, headers=headers)
+                commits.extend(response.json())
             # Extract all SHA keys from the JSON response
-            sha_list = self.get_sha_list_from_json(response.json())
+            sha_list = self.get_sha_list_from_json(commits)
             df_list = []  
             # Iterate through each commit and retrieve detailed information
             for sha in sha_list:
