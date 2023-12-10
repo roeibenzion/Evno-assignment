@@ -1,0 +1,26 @@
+        Our features will be:
+        commits history:
+        1. number of commits
+        2. commit freaquency
+        3. number of files changed
+        4. number of lines added
+        5. number of lines deleted
+        6. number of lines changed
+
+        issues history:
+        7. number of issues
+        8. number of issues closed
+        9. number of issues opened
+        10. number of issues commented
+        11. number of issues assigned
+        12. number of issues mentioned
+
+        pull requests history:
+        13. number of pull requests
+        14. number of pull requests opened
+        15. number of pull requests closed
+        16. number of pull requests merged
+        17. number of pull requests commented
+        18. number of pull requests assigned
+        19. number of pull requests mentioned
+        
