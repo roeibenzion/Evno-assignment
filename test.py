@@ -100,7 +100,7 @@ def search():
             elif not utilfunctions.validate_date_format(start_date):
                 print("Invalid date format")
                 start_date = 'None'
-            end_date = input('Insert end date (yyyy-mm-dd): ')
+            end_date = input('Insert end date (exclusive) (yyyy-mm-dd): ')
             if end_date == '':
                 end_date = 'None'
             elif not utilfunctions.validate_date_format(end_date):
